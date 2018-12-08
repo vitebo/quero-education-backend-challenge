@@ -9,15 +9,7 @@ class Api::V1::StudentsController < ApplicationController
 
   # GET /students/1
   def show
-  end
-
-  # GET /students/new
-  def new
-    @student = Student.new
-  end
-
-  # GET /students/1/edit
-  def edit
+    json_response(@student)
   end
 
   # POST /students
@@ -26,7 +18,7 @@ class Api::V1::StudentsController < ApplicationController
     @student.save
     json_response(@student, :created)
   end
-
+  
   # PATCH/PUT /students/1
   def update
     @student.update(student_params)
