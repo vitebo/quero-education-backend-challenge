@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Api::V1::StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: %i[show edit update destroy]
 
   # GET /students
   def index
@@ -18,7 +20,7 @@ class Api::V1::StudentsController < ApplicationController
     @student.save
     json_response(@student, :created)
   end
-  
+
   # PATCH/PUT /students/1
   def update
     @student.update(student_params)
@@ -32,13 +34,14 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = Student.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def student_params
-      params.require(:student).permit(:name, :cpf)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_student
+    @student = Student.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def student_params
+    params.require(:student).permit(:name, :cpf)
+  end
 end
