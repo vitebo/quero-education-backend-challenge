@@ -6,6 +6,9 @@ The project focuses on creating an API to manage admission, billings, and bills 
 All API documentation can be found here:
 [documenter.getpostman.com](https://documenter.getpostman.com/view/4286436/RzfiGoXE)
 
+Postman file with all request models
+[postman_collection.json](https://github.com/vitebo/challenge-integrated-admission/blob/master/challenge-integrated-admission.postman_collection.json)
+
 ## System dependencies
 
 - Ruby version: 2.5.1
