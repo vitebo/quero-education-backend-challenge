@@ -16,18 +16,14 @@ class Api::V1::BillingsController < ApplicationController
 
   # POST /billings
   def create
-    admission = get_admission_in_the_current_year
-    if admission.empty?
-      message = 'no admission in that year found'
-      return json_response(message: message, status: :no_content, admission: admission)
+    student_id = billings_params[:student_id]
+    admissions = Admission.where(student_id: student_id)
+    if admissions.empty?
+      return json_response(message: 'no admission found', status: :no_content)
     end
-    admission = admission[0]
-    unless admission.enem_grade > 450
+    approved_admissions = admissions.select { |admission| admission.enem_grade > 450 }
+    if approved_admissions.empty?
       return json_response(message: 'unapproved user', status: :forbidden)
-    end
-    if Billing.exists?(student_id: admission.student_id)
-      message = 'each student has only one billing per year'
-      return json_response(message: message, status: :forbidden)
     end
     @billing = Billing.new(billings_params)
     @billing.status = 'PENDING'
@@ -89,16 +85,5 @@ class Api::V1::BillingsController < ApplicationController
     return due_date if current_date.day < due_date.day
 
     due_date + 1.months
-  end
-
-  def get_admission_in_the_current_year
-    student_id = billings_params[:student_id]
-    dt = DateTime.now.to_date
-    Admission.where(
-      'created_at >= ? and created_at <= ? and student_id = ?',
-      dt.beginning_of_year,
-      dt.end_of_year,
-      student_id
-    )
   end
 end

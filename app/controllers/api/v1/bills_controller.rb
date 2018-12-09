@@ -24,7 +24,7 @@ class Api::V1::BillsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_billing
-    @bill = bill.find(params[:id])
+    @bill = Bill.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
