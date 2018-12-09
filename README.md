@@ -22,45 +22,29 @@ Relações do banco de dados
 
 ## Run project
 
-- clone o projeto
-```bash
-git@github.com:vitebo/challenge-integrated-admission.git
-```
+1. clone o projeto
+    ```bash
+    $ git@github.com:vitebo/challenge-integrated-admission.git
+    $ cd challenge-integrated-admission/
+    ```
 
-- acesse o projeto
-```bash
-cd challenge-integrated-admission/
-```
+2. instale as depêndências
+    ```bash
+    $ gem install bundler
+    $ bundler install
+    $ yarn install
+    ```
 
-- instale a gema do bundler
-```bash
-gem install bundler
-```
-- instale as gemas utilizadas no projeto
-```bash
-gem install bundler
-```
-- instale as depêndências do projeto
-```bash
-yarn install
-```
-
-- crie o banco de dados
-```bash
-rails db:create
-```
-
-- faça a migração
-```bash
-rails db:migrate
-```
-
-- suba o servidor
-```bash
-rails s
-```
+3. rode a aplicação
+    ```bash
+    $ rails db:create
+    $ rails db:migrate
+    $ rails s
+    ```
 
 ## Requisitos
+
+Requisitos da aplicação
 
 ### Requisitos de produto
 
@@ -72,7 +56,7 @@ de pagamento desejado.
 - O aluno deve poder consultar as mensalidades e alterar o método de pagamento (boleto ou cartão de crédito) das
 próximas.
 
-#### Criação de faturas
+### Criação de faturas
 
 As faturas devem ser criadas quando a matrícula é criada. Caso o dia de vencimento escolhido pelo aluno seja menor ou
 igual ao dia do mês atual, as faturas devem iniciar no próximo mês. Caso contrário, devem iniciar no mês atual. Por
