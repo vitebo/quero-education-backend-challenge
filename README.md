@@ -16,7 +16,9 @@ Toda a documentação da API pode ser encontrada aqui:
 
 ## Relação das tabelas
 
-![Data Base](https://github.com/vitebo/challenge-integrated-admission/tree/master/app/assets/images/db-tables.png)
+Relações do banco de dados
+
+![Data Base](https://raw.githubusercontent.com/vitebo/challenge-integrated-admission/master/app/assets/images/db-tables.png)
 
 ## Run project
 
