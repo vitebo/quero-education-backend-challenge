@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2018_11_21_020428) do
 
   create_table "admissions", force: :cascade do |t|
     t.integer "student_id"
-    t.string "step"
     t.integer "enem_grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

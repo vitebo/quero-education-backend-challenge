@@ -16,8 +16,19 @@ class Api::V1::AdmissionsController < ApplicationController
 
   # POST /admissions
   def create
+    current_year = DateTime.now.to_date.year
+    student_id = admission_params[:student_id]
+    has_admission = Admission.exists?(student_id: student_id)
+    if has_admission
+      old_admission = Admission.find(student_id = student_id)
+      if old_admission.created_at.year == current_year
+        return json_response(
+          message: 'each student has only one admission per year',
+          status: :forbidden
+        )
+      end
+    end
     @admission = Admission.new(admission_params)
-    @admission.step = @admission.enem_grade > 450 ? 'APPROVED' : 'DISAPPROVED'
     @admission.save
     json_response(@admission)
   end

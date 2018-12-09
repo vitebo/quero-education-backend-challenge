@@ -16,15 +16,20 @@ class Api::V1::BillingsController < ApplicationController
 
   # POST /billings
   def create
-    student_id = billings_params[:student_id]
-    is_approved = Admission.exists?(student_id: student_id, step: 'APPROVED')
-    unless is_approved
+    admission = get_admission_in_the_current_year
+    if admission.empty?
       return json_response(
-        message: 'unapproved user',
-        status: :forbidden
+        message: 'no admission in that year found',
+        status: :no_content,
+        admission: admission
       )
     end
+    admission = admission[0]
+    unless admission.enem_grade > 450
+      json_response(message: 'unapproved user', status: :forbidden)
+    end
     @billing = Billing.new(billings_params)
+    @billing.status = 'PENDING'
     @billing.save
     save_bills
     json_response(@billing)
@@ -60,13 +65,15 @@ class Api::V1::BillingsController < ApplicationController
   end
 
   def save_bills
-    value_by_bill = get_value_by_bill
+    value_by_bill = @billing.total_amount / @billing.installments_count
     due_date = get_first_bill_due_date
     (1..@billing.installments_count).each do |_i|
       bill = Bill.new(
+        billing_id: @billing.id,
         value: value_by_bill,
         due_date: due_date,
-        payment_method: 'CREDIT_CARD', # Default value
+        status: 'PENDING',
+        payment_method: 'CREDIT_CARD', # default value
         month: due_date.month,
         year: due_date.year
       )
@@ -75,18 +82,23 @@ class Api::V1::BillingsController < ApplicationController
     end
   end
 
-  def get_value_by_bill
-    # where to find this information?
-    total_billing_amount = 5000
-    total_billing_amount / @billing.installments_count
-  end
-
   def get_first_bill_due_date
     current_date = DateTime.now.to_date
-    if current_date.day < @billing.desired_due_day
-      return @billing.desired_due_day
+    due_date = DateTime.new(current_date.year, current_date.month, @billing.desired_due_day)
+    if current_date.day < due_date.day
+      return due_date
     end
+    due_date + 1.months
+  end
 
-    @billing.desired_due_day + 1.months
+  def get_admission_in_the_current_year
+    student_id = billings_params[:student_id]
+    dt = DateTime.now.to_date
+    Admission.where(
+      'created_at >= ? and created_at <= ? and student_id = ?',
+      dt.beginning_of_year,
+      dt.end_of_year,
+      student_id
+    )
   end
 end
