@@ -14,8 +14,17 @@ class Api::V1::PaymentsController < ApplicationController
 
   # POST /payments
   def create
-    @payment = Payment.new(payment_params)
-    @payment.save
+    @bill = Bill.find(id=payment_params[:bill_id])
+    unless @bill
+      return json_response(message: 'bill not found', status: :no_content)
+    end
+    if payment_params[:value].to_f != @bill.value.to_f
+      return json_response(message: 'invalid value', status: :no_content)
+    end
+    if @bill.status == 'PAID'
+      return json_response(message: 'account is already paid', status: :no_content)
+    end
+    save_payment
     json_response(@payment, :created)
   end
 
@@ -34,12 +43,29 @@ class Api::V1::PaymentsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_payments
+  def set_payment
     @payment = Payment.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def payment_params
     params.require(:payment).permit(:bill_id, :value)
+  end
+
+  def save_payment
+    @payment = Payment.new(payment_params)
+    @payment.status = 'PAID'
+    @payment.save
+    @bill.update(status: 'PAID')
+    update_billing
+  end
+
+  def update_billing
+    @bills = Bill.where('billing_id = ?', @bill.billing_id)
+    pending_bills = @bills.select { |bill| bill.status == 'PENDING' }
+    if pending_bills.length == 0
+      billing = Billing.find(id = @bill.bill_id)
+      billing.updated(status: 'PAID')
+    end
   end
 end

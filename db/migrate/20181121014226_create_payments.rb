@@ -4,7 +4,6 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.integer   :bill_id
       t.numeric   :value
       t.string    :status
-      t.datetime  :expiry_date
 
       t.timestamps
     end
