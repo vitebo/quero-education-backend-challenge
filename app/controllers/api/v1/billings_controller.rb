@@ -11,7 +11,7 @@ class Api::V1::BillingsController < ApplicationController
 
   # GET /billings/1
   def show
-    json_response(@billing)
+    json_response(billing: @billing, bills: @bills)
   end
 
   # POST /billings
@@ -21,10 +21,12 @@ class Api::V1::BillingsController < ApplicationController
     if admissions.empty?
       return json_response(message: 'no admission found', status: :no_content)
     end
+
     approved_admissions = admissions.select { |admission| admission.enem_grade > 450 }
     if approved_admissions.empty?
       return json_response(message: 'unapproved user', status: :forbidden)
     end
+
     @billing = Billing.new(billings_params)
     @billing.status = 'PENDING'
     @billing.save
@@ -34,7 +36,17 @@ class Api::V1::BillingsController < ApplicationController
 
   # PATCH/PUT /billings/1
   def update
-    @billing.update(billing)
+    payment_method = billings_params['payment_method']
+    unless %w[CREDIT_CARD PAYMENT_SLIP].include? payment_method
+      return json_response(message: 'invalid parameters')
+    end
+
+    dt = DateTime.now.to_date
+    next_bills = @bills.select { |bill| bill.created_at > dt }
+    next_bills.each do |bill|
+      bill.update(payment_method: payment_method)
+    end
+    @billing.update(payment_method: payment_method)
     head :no_content
   end
 
@@ -48,7 +60,8 @@ class Api::V1::BillingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_billing
-    @billing = billing.find(params[:id])
+    @billing = Billing.find(params[:id])
+    @bills = Bill.where(billing_id: @billing.id)
   end
 
   # Only allow a trusted parameter "white list" through.
@@ -57,20 +70,22 @@ class Api::V1::BillingsController < ApplicationController
       :student_id,
       :total_amount,
       :desired_due_day,
-      :installments_count
+      :installments_count,
+      'payment_method'
     )
   end
 
   def save_bills
     value_by_bill = @billing.total_amount / @billing.installments_count
     due_date = get_first_bill_due_date
+    payment_method = billings_params['payment_method']
     (1..@billing.installments_count).each do |_i|
       bill = Bill.new(
         billing_id: @billing.id,
         value: value_by_bill,
         due_date: due_date,
         status: 'PENDING',
-        payment_method: 'CREDIT_CARD', # default value
+        payment_method: payment_method,
         month: due_date.month,
         year: due_date.year
       )

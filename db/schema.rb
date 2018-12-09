@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_020428) do
     t.decimal "total_amount"
     t.integer "desired_due_day"
     t.integer "installments_count"
+    t.string "payment_method"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
