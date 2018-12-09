@@ -56,18 +56,17 @@ class Api::V1::BillingsController < ApplicationController
 
   def save_bills
     value_by_bill = get_value_by_bill
-    paid_date = get_paid_date
-    (0..@billing.installments_count).each do |_i|
+    due_date = get_first_bill_due_date
+    (1..@billing.installments_count).each do |_i|
       bill = Bill.new(
         value: value_by_bill,
-        due_date: paid_date,
-        paid_date: paid_date + 5.days,
+        due_date: due_date,
         payment_method: 'CREDIT_CARD', # Default value
-        month: paid_date.month,
-        year: paid_date.year
+        month: due_date.month,
+        year: due_date.year
       )
       bill.save
-      paid_date += 1.months
+      due_date += 1.months
     end
   end
 
@@ -77,12 +76,11 @@ class Api::V1::BillingsController < ApplicationController
     total_billing_amount / @billing.installments_count
   end
 
-  def get_paid_date
+  def get_first_bill_due_date
     current_date = DateTime.now.to_date
     if current_date.day < @billing.desired_due_day
       return @billing.desired_due_day
     end
-
     @billing.desired_due_day + 1.months
   end
 end
