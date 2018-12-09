@@ -51,7 +51,12 @@ class Api::V1::BillingsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def billings_params
-    params.require(:billing).permit(:student_id, :desired_due_day, :installments_count)
+    params.require(:billing).permit(
+      :student_id,
+      :total_amount,
+      :desired_due_day,
+      :installments_count
+    )
   end
 
   def save_bills
@@ -81,6 +86,7 @@ class Api::V1::BillingsController < ApplicationController
     if current_date.day < @billing.desired_due_day
       return @billing.desired_due_day
     end
+
     @billing.desired_due_day + 1.months
   end
 end
