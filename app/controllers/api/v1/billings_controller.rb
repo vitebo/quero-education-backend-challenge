@@ -27,6 +27,11 @@ class Api::V1::BillingsController < ApplicationController
       return json_response(message: 'unapproved user', status: :forbidden)
     end
 
+    installments_count = billings_params[:installments_count].to_i
+    if installments_count > 12 or installments_count < 1
+      return json_response(message: 'invalid value', status: :no_content)
+    end
+
     @billing = Billing.new(billings_params)
     @billing.status = 'PENDING'
     @billing.save

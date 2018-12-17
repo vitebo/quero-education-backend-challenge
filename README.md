@@ -1,24 +1,46 @@
-# README
+# Challenge integrated admission
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Test version: **(2018_11_21)**
 
-Things you may want to cover:
+The project focuses on creating an API to manage admission, billings, and bills fees for students.
 
-* Ruby version
+## API documentation
 
-* System dependencies
+All API documentation can be found here:
+[documenter.getpostman.com](https://documenter.getpostman.com/view/4286436/RzfiGoXE)
 
-* Configuration
+Postman file with all request models
+[postman_collection.json](https://github.com/vitebo/challenge-integrated-admission/blob/master/challenge-integrated-admission.postman_collection.json)
 
-* Database creation
+## System dependencies
 
-* Database initialization
+- Ruby version: 2.5.1
+- Yarn
+- Node
 
-* How to run the test suite
+## Relationship in the database
 
-* Services (job queues, cache servers, search engines, etc.)
+![Database](https://raw.githubusercontent.com/vitebo/challenge-integrated-admission/master/app/assets/images/db-tables.png)
 
-* Deployment instructions
+## Running the project
 
-* ...
+1. clone the repository
+    ```bash
+    $ git@github.com:vitebo/challenge-integrated-admission.git
+    $ cd challenge-integrated-admission/
+    ```
+
+2. install all dependencies
+    ```bash
+    $ gem install bundler
+    $ bundler install
+    $ yarn install
+    ```
+
+3. start the application
+    ```bash
+    $ rails db:create
+    $ rails db:migrate
+    $ rails s
+    ```
+    

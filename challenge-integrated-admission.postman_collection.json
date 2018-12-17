@@ -1,0 +1,1812 @@
+{
+	"info": {
+		"_postman_id": "39fb0424-8425-43b6-b6c2-9f32810a2fbf",
+		"name": "Challenge integrated admission",
+		"description": "API to manage admission, billings, and bills fees for students.\n\nAll API documentation can be found here:\nhttps://github.com/vitebo/challenge-integrated-admission",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "save student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student[name]",
+									"value": "André",
+									"description": "Student's name",
+									"type": "text"
+								},
+								{
+									"key": "student[cpf]",
+									"value": "42887355858",
+									"description": "Student's CPF",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						},
+						"description": "Create a student's registration"
+					},
+					"response": [
+						{
+							"name": "Daniela",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "student[name]",
+											"value": "Daniela",
+											"description": "Nome do aluno",
+											"type": "text"
+										},
+										{
+											"key": "student[cpf]",
+											"value": "42885555448",
+											"description": "CPF do aluno",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/students",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"students"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c26dc06a600e4d805a3d41d401375f2a\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "ab611b8a-09f9-4c6b-943e-e01e1ffc837e"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.021268"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Daniela\",\n    \"cpf\": \"42885555448\",\n    \"created_at\": \"2018-12-09T17:47:46.795Z\",\n    \"updated_at\": \"2018-12-09T17:47:46.795Z\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "student[name]",
+											"value": "André",
+											"description": "Nome do aluno",
+											"type": "text"
+										},
+										{
+											"key": "student[cpf]",
+											"value": "42887355858",
+											"description": "CPF do aluno",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/students",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"students"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"201cfd7723eda7ca80703074a2c10b6a\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "571820e8-3f5d-4d63-bd30-5915bc180003"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.113138"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"André\",\n    \"cpf\": \"42887355858\",\n    \"created_at\": \"2018-12-09T17:47:08.903Z\",\n    \"updated_at\": \"2018-12-09T17:47:08.903Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						},
+						"description": "Search all registered students"
+					},
+					"response": [
+						{
+							"name": "get students",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/students",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"students"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fc1493a4056c3eb00beb36c8229df2ad\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "ec036f33-37dc-4e88-b1fb-a6a6d770157f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.005018"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"André\",\n        \"cpf\": \"42887355858\",\n        \"created_at\": \"2018-12-09T17:47:08.903Z\",\n        \"updated_at\": \"2018-12-09T17:47:08.903Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Daniela\",\n        \"cpf\": \"42885555448\",\n        \"created_at\": \"2018-12-09T17:47:46.795Z\",\n        \"updated_at\": \"2018-12-09T17:47:46.795Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get student by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						},
+						"description": "Search student by ID"
+					},
+					"response": [
+						{
+							"name": "Daniela",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/students/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"students",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c26dc06a600e4d805a3d41d401375f2a\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "c74ab3ac-f37b-4131-9867-810768b25c30"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.004278"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Daniela\",\n    \"cpf\": \"42885555448\",\n    \"created_at\": \"2018-12-09T17:47:46.795Z\",\n    \"updated_at\": \"2018-12-09T17:47:46.795Z\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/students/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"students",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"201cfd7723eda7ca80703074a2c10b6a\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "d837a083-dba9-4c24-b790-cc77a3b8059f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.005207"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"André\",\n    \"cpf\": \"42887355858\",\n    \"created_at\": \"2018-12-09T17:47:08.903Z\",\n    \"updated_at\": \"2018-12-09T17:47:08.903Z\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Students who can enroll in the admission process",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b1610478-267c-4051-b982-e33981b53f4c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea792eca-2806-40cc-bdec-ca06e43aa2d9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admission",
+			"item": [
+				{
+					"name": "save admission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "admission[student_id]",
+									"value": "1",
+									"description": "Student submitting",
+									"type": "text"
+								},
+								{
+									"key": "admission[enem_grade]",
+									"value": "520",
+									"description": "ENEM note of the student",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admissions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admissions"
+							]
+						},
+						"description": "create an admission"
+					},
+					"response": [
+						{
+							"name": "Daniela",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "admission[student_id]",
+											"value": "2",
+											"description": "Aluno que está submetendo",
+											"type": "text"
+										},
+										{
+											"key": "admission[enem_grade]",
+											"value": "380",
+											"description": "Nota que o aluno tirou no ENEM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admissions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d9deaa6a84c85852bd8bd0b3f09999e\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "e4f81d53-bba8-4d68-803f-b238eea700ed"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.026576"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"student_id\": 2,\n    \"enem_grade\": 380,\n    \"created_at\": \"2018-12-09T17:53:31.075Z\",\n    \"updated_at\": \"2018-12-09T17:53:31.075Z\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "admission[student_id]",
+											"value": "1",
+											"description": "Aluno que está submetendo",
+											"type": "text"
+										},
+										{
+											"key": "admission[enem_grade]",
+											"value": "520",
+											"description": "Nota que o aluno tirou no ENEM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admissions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df269a9cd824663e431289eb1946ad05\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "cb985aba-387d-431c-a7c8-07d84ebe720a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.039150"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"student_id\": 1,\n    \"enem_grade\": 520,\n    \"created_at\": \"2018-12-09T17:52:59.825Z\",\n    \"updated_at\": \"2018-12-09T17:52:59.825Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get admissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admissions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admissions"
+							]
+						},
+						"description": "Search all admissions made"
+					},
+					"response": [
+						{
+							"name": "get admissions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admissions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b260a22bed84d71321ea1e563e9662d\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "e3643f57-72e7-4216-bafe-77eb0e56df44"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.003778"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"student_id\": 1,\n        \"enem_grade\": 520,\n        \"created_at\": \"2018-12-09T17:52:59.825Z\",\n        \"updated_at\": \"2018-12-09T17:52:59.825Z\"\n    },\n    {\n        \"id\": 2,\n        \"student_id\": 2,\n        \"enem_grade\": 380,\n        \"created_at\": \"2018-12-09T17:53:31.075Z\",\n        \"updated_at\": \"2018-12-09T17:53:31.075Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get admission by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admissions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admissions",
+								"1"
+							]
+						},
+						"description": "Search admission by ID"
+					},
+					"response": [
+						{
+							"name": "Daniela",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admissions/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admissions",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d9deaa6a84c85852bd8bd0b3f09999e\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "e738b873-72ba-43be-902a-1dd07eb8ccbd"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.003314"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"student_id\": 2,\n    \"enem_grade\": 380,\n    \"created_at\": \"2018-12-09T17:53:31.075Z\",\n    \"updated_at\": \"2018-12-09T17:53:31.075Z\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/admissions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"admissions",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df269a9cd824663e431289eb1946ad05\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "b9740b18-09f8-4547-ad19-6b17a2b66c0a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.005501"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"student_id\": 1,\n    \"enem_grade\": 520,\n    \"created_at\": \"2018-12-09T17:52:59.825Z\",\n    \"updated_at\": \"2018-12-09T17:52:59.825Z\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Admissions can be made by the student.\nEach student may submit only once a year, because the approval process is linked to the ENEM note",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "64845003-3a33-4fdf-a002-3f1358ee778c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "83a371ad-7dd4-4a96-998f-37335007e1ca",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Billings",
+			"item": [
+				{
+					"name": "save billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "billing[student_id]",
+									"value": "1",
+									"description": "Student submitting",
+									"type": "text"
+								},
+								{
+									"key": "billing[total_amount]",
+									"value": "5000",
+									"description": "Total to be paid",
+									"type": "text"
+								},
+								{
+									"key": "billing[desired_due_day]",
+									"value": "15",
+									"description": "Due date"
+								},
+								{
+									"key": "billing[installments_count]",
+									"value": "4",
+									"description": "Number of installments",
+									"type": "text"
+								},
+								{
+									"key": "billing[payment_method]",
+									"value": "CREDIT_CARD",
+									"description": "Payment method",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/billings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"billings"
+							]
+						},
+						"description": "If the admission is approved, the student can activate the billing by entering the number of installments and the desired payday.\n\nBills must be created when billing is created."
+					},
+					"response": [
+						{
+							"name": "Daniela",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "billing[student_id]",
+											"value": "2",
+											"description": "Aluno que está submetendo",
+											"type": "text"
+										},
+										{
+											"key": "billing[total_amount]",
+											"value": "5000",
+											"description": "Valor total a ser pago",
+											"type": "text"
+										},
+										{
+											"key": "billing[desired_due_day]",
+											"value": "15",
+											"description": "Dia do vencimento"
+										},
+										{
+											"key": "billing[installments_count]",
+											"value": "4",
+											"description": "Quantidade de parcelas",
+											"type": "text"
+										},
+										{
+											"key": "billing[payment_method]",
+											"value": "CREDIT_CARD",
+											"description": "Forma de pagamento",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63c81e2572401fffbbc8c5840c8be417\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "bfa30da7-5d72-490d-b748-e1a06968f3b8"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006334"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"unapproved user\",\n    \"status\": \"forbidden\"\n}"
+						},
+						{
+							"name": "André 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "billing[student_id]",
+											"value": "1",
+											"description": "Aluno que está submetendo",
+											"type": "text"
+										},
+										{
+											"key": "billing[total_amount]",
+											"value": "6000",
+											"description": "Valor total a ser pago",
+											"type": "text"
+										},
+										{
+											"key": "billing[desired_due_day]",
+											"value": "5",
+											"description": "Dia do vencimento"
+										},
+										{
+											"key": "billing[installments_count]",
+											"value": "6",
+											"description": "Quantidade de parcelas",
+											"type": "text"
+										},
+										{
+											"key": "billing[payment_method]",
+											"value": "CREDIT_CARD",
+											"description": "Forma de pagamento",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d980a87abed6b774f74fcd4a86a12068\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "ffca11bc-d4aa-4699-afee-7179bf27144f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.133498"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"student_id\": 1,\n    \"total_amount\": \"6000.0\",\n    \"desired_due_day\": 5,\n    \"installments_count\": 6,\n    \"payment_method\": \"CREDIT_CARD\",\n    \"status\": \"PENDING\",\n    \"created_at\": \"2018-12-09T18:01:58.627Z\",\n    \"updated_at\": \"2018-12-09T18:01:58.627Z\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "billing[student_id]",
+											"value": "1",
+											"description": "Aluno que está submetendo",
+											"type": "text"
+										},
+										{
+											"key": "billing[total_amount]",
+											"value": "5000",
+											"description": "Valor total a ser pago",
+											"type": "text"
+										},
+										{
+											"key": "billing[desired_due_day]",
+											"value": "15",
+											"description": "Dia do vencimento"
+										},
+										{
+											"key": "billing[installments_count]",
+											"value": "4",
+											"description": "Quantidade de parcelas",
+											"type": "text"
+										},
+										{
+											"key": "billing[payment_method]",
+											"value": "CREDIT_CARD",
+											"description": "Forma de pagamento",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"08a299277f3b388897c4d08ac8c8a217\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a7e1d4d3-9544-4767-8f38-d14421d35aac"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.172390"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"student_id\": 1,\n    \"total_amount\": \"5000.0\",\n    \"desired_due_day\": 15,\n    \"installments_count\": 4,\n    \"payment_method\": \"CREDIT_CARD\",\n    \"status\": \"PENDING\",\n    \"created_at\": \"2018-12-09T18:01:00.973Z\",\n    \"updated_at\": \"2018-12-09T18:01:00.973Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get billings by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/billings/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"billings",
+								"1"
+							]
+						},
+						"description": "Search for billing by ID, including all related bills"
+					},
+					"response": [
+						{
+							"name": "André 2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e7178a7f4eabc7082734e1463ff991f\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "f9733a03-3c7d-49bf-865a-6d805dd295ee"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.008747"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"billing\": {\n        \"id\": 2,\n        \"student_id\": 1,\n        \"total_amount\": \"6000.0\",\n        \"desired_due_day\": 5,\n        \"installments_count\": 6,\n        \"payment_method\": \"CREDIT_CARD\",\n        \"status\": \"PENDING\",\n        \"created_at\": \"2018-12-09T18:01:58.627Z\",\n        \"updated_at\": \"2018-12-09T18:01:58.627Z\"\n    },\n    \"bills\": [\n        {\n            \"id\": 5,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-01-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 1,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.640Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.640Z\"\n        },\n        {\n            \"id\": 6,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-02-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 2,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.655Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.655Z\"\n        },\n        {\n            \"id\": 7,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-03-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 3,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.676Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.676Z\"\n        },\n        {\n            \"id\": 8,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-04-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 4,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.704Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.704Z\"\n        },\n        {\n            \"id\": 9,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-05-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 5,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.723Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.723Z\"\n        },\n        {\n            \"id\": 10,\n            \"billing_id\": 2,\n            \"value\": \"1000.0\",\n            \"due_date\": \"2019-06-05T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 6,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:58.740Z\",\n            \"updated_at\": \"2018-12-09T18:01:58.740Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e18fbc424c6bd4c58f830dffb6ee62c5\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "403e1a5f-3a04-4a3b-90f9-684e1d9d2567"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.010273"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"billing\": {\n        \"id\": 1,\n        \"student_id\": 1,\n        \"total_amount\": \"5000.0\",\n        \"desired_due_day\": 15,\n        \"installments_count\": 4,\n        \"payment_method\": \"CREDIT_CARD\",\n        \"status\": \"PENDING\",\n        \"created_at\": \"2018-12-09T18:01:00.973Z\",\n        \"updated_at\": \"2018-12-09T18:01:00.973Z\"\n    },\n    \"bills\": [\n        {\n            \"id\": 1,\n            \"billing_id\": 1,\n            \"value\": \"1250.0\",\n            \"due_date\": \"2018-12-15T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 12,\n            \"year\": 2018,\n            \"created_at\": \"2018-12-09T18:01:01.023Z\",\n            \"updated_at\": \"2018-12-09T18:01:01.023Z\"\n        },\n        {\n            \"id\": 2,\n            \"billing_id\": 1,\n            \"value\": \"1250.0\",\n            \"due_date\": \"2019-01-15T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 1,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:01.040Z\",\n            \"updated_at\": \"2018-12-09T18:01:01.040Z\"\n        },\n        {\n            \"id\": 3,\n            \"billing_id\": 1,\n            \"value\": \"1250.0\",\n            \"due_date\": \"2019-02-15T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 2,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:01.054Z\",\n            \"updated_at\": \"2018-12-09T18:01:01.054Z\"\n        },\n        {\n            \"id\": 4,\n            \"billing_id\": 1,\n            \"value\": \"1250.0\",\n            \"due_date\": \"2019-03-15T00:00:00.000Z\",\n            \"status\": \"PENDING\",\n            \"payment_method\": \"CREDIT_CARD\",\n            \"month\": 3,\n            \"year\": 2019,\n            \"created_at\": \"2018-12-09T18:01:01.073Z\",\n            \"updated_at\": \"2018-12-09T18:01:01.073Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get billings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/billings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"billings"
+							]
+						},
+						"description": "Returns all billings, without their bills"
+					},
+					"response": [
+						{
+							"name": "get billings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"610611230ff0eb3cfca2282d37bbfc3f\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "6598fd3f-a9ea-4a67-a910-1bf66d7facf1"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.005925"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"student_id\": 1,\n        \"total_amount\": \"5000.0\",\n        \"desired_due_day\": 15,\n        \"installments_count\": 4,\n        \"payment_method\": \"CREDIT_CARD\",\n        \"status\": \"PENDING\",\n        \"created_at\": \"2018-12-09T18:01:00.973Z\",\n        \"updated_at\": \"2018-12-09T18:01:00.973Z\"\n    },\n    {\n        \"id\": 2,\n        \"student_id\": 1,\n        \"total_amount\": \"6000.0\",\n        \"desired_due_day\": 5,\n        \"installments_count\": 6,\n        \"payment_method\": \"CREDIT_CARD\",\n        \"status\": \"PENDING\",\n        \"created_at\": \"2018-12-09T18:01:58.627Z\",\n        \"updated_at\": \"2018-12-09T18:01:58.627Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "update billing",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "billing[payment_method]",
+									"value": "PAYMENT_SLIP",
+									"description": "Payment method",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/billings/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"billings",
+								"2"
+							]
+						},
+						"description": "Update form of payment"
+					},
+					"response": [
+						{
+							"name": "update billing",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "billing[payment_method]",
+											"value": "PAYMENT_SLIP",
+											"description": "Forma de pagamento",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/billings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"billings",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "97c77c8f-5722-49ce-a679-5f295303df3d"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.104376"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "- Permitted only if admission is approved\n- Admission is approved if the ENEM grade is higher than 450",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c9c056bd-bc0c-4168-bd62-e400a616f4ac",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "df9b923a-2b53-434a-ac14-100afa7a7608",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "save payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "payment[bill_id]",
+									"value": "1",
+									"description": "Bill id",
+									"type": "text"
+								},
+								{
+									"key": "payment[value]",
+									"value": "1250",
+									"description": "Paid value",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							]
+						},
+						"description": "Make payment of a parcel.\n\nThe value sent must be the exact value of the parcel."
+					},
+					"response": [
+						{
+							"name": "Valor inválido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "payment[bill_id]",
+											"value": "1",
+											"description": "Id da parcela",
+											"type": "text"
+										},
+										{
+											"key": "payment[value]",
+											"value": "1150",
+											"description": "Valor pago",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b88dbbb9c27c7a88154000c880a0208b\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "29879a64-f955-4587-a1fb-8b5c045e455d"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.006561"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"invalid value\",\n    \"status\": \"no_content\"\n}"
+						},
+						{
+							"name": "André",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "payment[bill_id]",
+											"value": "1",
+											"description": "Id da parcela",
+											"type": "text"
+										},
+										{
+											"key": "payment[value]",
+											"value": "1250",
+											"description": "Valor pago",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"payments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51dca19b1914cb9b99439c8d1d1a7a47\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "b66d1d5d-1ab1-4e73-873a-310769a02392"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.074247"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"bill_id\": 1,\n    \"value\": \"1250.0\",\n    \"status\": \"PAID\",\n    \"created_at\": \"2018-12-09T18:08:16.402Z\",\n    \"updated_at\": \"2018-12-09T18:08:16.402Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							]
+						},
+						"description": "Search for all payments made"
+					},
+					"response": [
+						{
+							"name": "get payments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61af8bbf8fb89c18710e9927ea72ba4c\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "3d561007-67ed-431d-b86f-867cffcdc87f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.003951"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"bill_id\": 1,\n        \"value\": \"1250.0\",\n        \"status\": \"PAID\",\n        \"created_at\": \"2018-12-09T18:08:16.402Z\",\n        \"updated_at\": \"2018-12-09T18:08:16.402Z\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "Payment of installments by students",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aabf8713-9ed1-4f01-98ae-5c210def6725",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cfaa066d-6296-4664-86c2-e39b1d650c24",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0f8e12be-8895-429e-95d2-7a9bf527b439",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e87a3c55-5137-4862-8d34-94593de48e03",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
