@@ -1,6 +1,6 @@
 # Challenge integrated admission
 
-Test version: **(2018_11_21)**
+Test version: **(2022_10_03)**
 
 The project focuses on creating an API to manage admission, billings, and bills fees for students.
 
